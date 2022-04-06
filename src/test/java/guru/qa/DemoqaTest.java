@@ -2,6 +2,7 @@ package guru.qa;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelectorMode;
 import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.BeforeAll;
@@ -38,7 +39,16 @@ public class DemoqaTest {
         $(".react-datepicker__month-select").selectOption("July");
         $(".react-datepicker__year-select").selectOption("1989");
         $("div[aria-label='Choose Tuesday, July 18th, 1989']").click();
-        
+        $("#subjectsInput").setValue("E").pressEnter();
+        $("#uploadPicture").uploadFromClasspath("/12.jpg");
+
+
+
+
+
+
+
+
 
 
 
