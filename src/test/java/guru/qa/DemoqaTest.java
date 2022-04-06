@@ -1,9 +1,12 @@
 package guru.qa;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.SelectorMode;
 import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+import org.w3c.dom.Text;
 
 
 import static com.codeborne.selenide.Selenide.open;
@@ -25,7 +28,12 @@ public class DemoqaTest {
         $("[id=firstName]").setValue("Daniil");
         $("[id=lastName]").setValue("Medved");
         $("[id=userEmail]").setValue("9414354@mail.ru");
-        $("[id=genterWrapper]").setValue("Daniil");
+        $("label[for='gender-radio-1']").click();
+        $("[id=userNumber]").setValue("8921941435");
+        $("label[for='hobbies-checkbox-1']").click();
+        
+
+
     }
 
 }
