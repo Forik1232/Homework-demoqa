@@ -1,10 +1,13 @@
 package guru.qa;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+
 import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.$;
 
 public class DemoqaTest {
 
@@ -16,9 +19,13 @@ public class DemoqaTest {
     }
 
     @Test
-    void practiceform(){
+    void practiceform() {
         open("/automation-practice-form");
+
+        $("[id=firstName]").setValue("Daniil");
+        $("[id=lastName]").setValue("Medved");
+        $("[id=userEmail]").setValue("9414354@mail.ru");
+        $("[id=genterWrapper]").setValue("Daniil");
     }
+
 }
-
-
