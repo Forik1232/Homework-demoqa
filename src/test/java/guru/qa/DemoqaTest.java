@@ -13,8 +13,10 @@ import org.w3c.dom.Text;
 
 import java.util.spi.CalendarDataProvider;
 
-import static com.codeborne.selenide.Selenide.open;
-import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selenide.*;
+
 
 public class DemoqaTest {
 
@@ -23,6 +25,8 @@ public class DemoqaTest {
         Configuration.holdBrowserOpen = true;
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1920x1080";
+
+
     }
 
     @Test
@@ -40,7 +44,22 @@ public class DemoqaTest {
         $(".react-datepicker__year-select").selectOption("1989");
         $("div[aria-label='Choose Tuesday, July 18th, 1989']").click();
         $("#subjectsInput").setValue("E").pressEnter();
-        $("#uploadPicture").uploadFromClasspath("/12.jpg");
+        $("#uploadPicture").uploadFromClasspath("1.jpg");
+        $("[id=currentAddress]").setValue("Nahimova1");
+        $("#state").click();
+        $(byText("NCR")).click();
+        $("#city").click();
+        $(byText("Delhi")).click();
+        executeJavaScript("$('footer').remove()");
+        executeJavaScript("$('#fixedban').remove()");
+        $("#submit").click();
+
+
+
+
+
+
+
 
 
 
