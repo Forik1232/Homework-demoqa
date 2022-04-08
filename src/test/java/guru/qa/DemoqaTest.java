@@ -1,17 +1,8 @@
 package guru.qa;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.ElementsCollection;
-import com.codeborne.selenide.SelectorMode;
-import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-import org.w3c.dom.Text;
-
-
-import java.util.spi.CalendarDataProvider;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -53,6 +44,11 @@ public class DemoqaTest {
         executeJavaScript("$('footer').remove()");
         executeJavaScript("$('#fixedban').remove()");
         $("#submit").click();
+
+        $("[class=modal-open]").shouldHave(text("Daniil"), text("Medved"),
+                text("9414354@mail.ru"), text("Male"), text("8921941435"),
+                text("18 July,1989"), text("English"), text("Sport"),
+                text("1.jpg"),text("Nahimova1"),text("NCR Delhi"));
 
 
 
