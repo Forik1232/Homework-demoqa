@@ -1,5 +1,6 @@
 package guru.qa;
 
+import TestJavafaker.Fakertest;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -22,12 +23,15 @@ public class DemoqaTest {
 
     @Test
     void practiceform() {
-        open("/automation-practice-form");
+        Fakertest fakertest = new Fakertest();
+        fakertest.openPage();
 
-        $("[id=firstName]").setValue("Daniil");
-        $("[id=lastName]").setValue("Medved");
-        $("[id=userEmail]").setValue("9414354@mail.ru");
-        $("label[for='gender-radio-1']").click();
+        fakertest.setFirstName("Daniil");
+        fakertest.setLastName("Medved");
+        fakertest.setEmail("9414354@mail.ru");
+        fakertest.setlabel("Male");
+
+
         $("[id=userNumber]").setValue("8921941435");
         $("label[for='hobbies-checkbox-1']").click();
         $("#dateOfBirthInput").click();
