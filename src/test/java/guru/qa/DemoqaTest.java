@@ -3,6 +3,7 @@ package guru.qa;
 import TestJavafaker.Fakertest;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
+import com.github.javafaker.Faker;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -14,6 +15,15 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class DemoqaTest {
 
+    Faker faker = new Faker();
+
+    String setFirstName = faker.name().firstName(),
+    setLastName = faker.name().lastName();
+
+
+
+
+
     Fakertest fakertest = new Fakertest();
 
     @BeforeAll
@@ -21,20 +31,15 @@ public class DemoqaTest {
         Configuration.holdBrowserOpen = true;
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1280x720";
-
-
-
-
-
-
+        
     }
 
     @Test
     void practiceform() {
 
         fakertest.openPage()
-        .setFirstName("Daniil")
-        .setLastName("Medved")
+        .setFirstName(setFirstName)
+        .setLastName(setLastName)
         .setEmail("9414354@mail.ru")
         .setlabel()
         .setUserNumber("8921941435")
@@ -49,7 +54,7 @@ public class DemoqaTest {
         .setcityInput()
         .setDelhiInput()
         .setSubmit()
-        .setcheckResult("Daniil", "Medved");
+        .setcheckResult(setFirstName, setLastName);
 
         executeJavaScript("$('footer').remove()");
         executeJavaScript("$('#fixedban').remove()");
