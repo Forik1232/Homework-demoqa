@@ -2,6 +2,7 @@ package guru.qa;
 
 import TestJavafaker.Fakertest;
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -12,6 +13,8 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class DemoqaTest {
 
+    Fakertest fakertest = new Fakertest();
+
     @BeforeAll
     static void setUp() {
         Configuration.holdBrowserOpen = true;
@@ -19,25 +22,24 @@ public class DemoqaTest {
         Configuration.browserSize = "1920x1080";
 
 
+
+
     }
 
     @Test
     void practiceform() {
-        Fakertest fakertest = new Fakertest();
-        fakertest.openPage();
 
-        fakertest.setFirstName("Daniil");
-        fakertest.setLastName("Medved");
-        fakertest.setEmail("9414354@mail.ru");
-        fakertest.setlabel("Male");
+        fakertest.openPage()
+        .setFirstName("Daniil")
+        .setLastName("Medved")
+        .setEmail("9414354@mail.ru")
+        .setlabel()
+        .setUserNumber("8921941435")
+        .sethobbies()
+        .setdateOfBirth()
+        .setmonthInput("July", "1989");
 
 
-        $("[id=userNumber]").setValue("8921941435");
-        $("label[for='hobbies-checkbox-1']").click();
-        $("#dateOfBirthInput").click();
-        $(".react-datepicker__month-select").selectOption("July");
-        $(".react-datepicker__year-select").selectOption("1989");
-        $("div[aria-label='Choose Tuesday, July 18th, 1989']").click();
         $("#subjectsInput").setValue("E").pressEnter();
         $("#uploadPicture").uploadFromClasspath("1.jpg");
         $("[id=currentAddress]").setValue("Nahimova1");
