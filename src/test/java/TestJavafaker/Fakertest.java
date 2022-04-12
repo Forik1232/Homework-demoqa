@@ -19,6 +19,17 @@ public class Fakertest {
     SelenideElement monthInput = $(".react-datepicker__month-select");
     SelenideElement yearInput = $(".react-datepicker__year-select");
     SelenideElement clickInput = $("div[aria-label='Choose Tuesday, July 18th, 1989']");
+    SelenideElement subjectInput = $("#subjectsInput");
+    SelenideElement pictureInput = $("#uploadPicture");
+    SelenideElement adressInput = $("[id=currentAddress]");
+    SelenideElement clicstate = $("#state");
+    SelenideElement NCRInput = $(byText("NCR"));
+    SelenideElement cityInput = $("#city");
+    SelenideElement DelhiInput = $(byText("Delhi"));
+    SelenideElement submitInput = $("#submit");
+    SelenideElement ChrInput = $("[class=modal-open]");
+
+
 
 
     public Fakertest openPage() {
@@ -42,8 +53,8 @@ public class Fakertest {
         return this;
     }
 
-    public Fakertest setEmail(String value) {
-        userEmailInput.setValue("9414354@mail.ru");
+    public Fakertest setEmail(String mail) {
+        userEmailInput.setValue(mail);
 
         return this;
 
@@ -84,23 +95,65 @@ public class Fakertest {
         return this;
     }
 
+    public Fakertest subjectInput(String object) {
+        subjectInput.setValue(object);
+        subjectInput.pressEnter();
+
+        return this;
+    }
+    public Fakertest pictureInput(String picture) {
+        pictureInput.uploadFromClasspath(picture);
+
+        return this;
+    }
+    public Fakertest adressInput(String adress) {
+        adressInput.setValue(adress);
+
+        return this;
+    }
+    public Fakertest setStateInput() {
+        clicstate.click();
 
 
+        return this;
+    }
+    public Fakertest setNCRInput() {
+        NCRInput.click();
 
+        return this;
+    }
 
+    public Fakertest setcityInput() {
+        cityInput.click();
 
+        return this;
+    }
+    public Fakertest setDelhiInput() {
+        DelhiInput.click();
 
-    public Fakertest checkResult(String key, String value) {
-        $("[class=modal-open]").$(byText(key)).shouldHave(text("Daniil"), text("Medved"),
-                text("9414354@mail.ru"), text("Male"), text("8921941435"),
-                text("18 July,1989"), text("English"), text("Sport"),
-                text("1.jpg"),text("Nahimova1"),text("NCR Delhi"));
+        return this;
+    }
+
+    public Fakertest setSubmit() {
+        submitInput.pressEnter();
 
         return this;
     }
 
 
+
+
+
+
+
+
+    public Fakertest setcheckResult(String firstname, String lastname) {
+        ChrInput.shouldHave(text(firstname), text(lastname));
+
+        return this;
+    }
 }
+
 
 
 

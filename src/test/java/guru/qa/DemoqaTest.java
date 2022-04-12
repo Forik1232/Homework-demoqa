@@ -5,6 +5,7 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -19,7 +20,9 @@ public class DemoqaTest {
     static void setUp() {
         Configuration.holdBrowserOpen = true;
         Configuration.baseUrl = "https://demoqa.com";
-        Configuration.browserSize = "1920x1080";
+        Configuration.browserSize = "1280x720";
+
+
 
 
 
@@ -37,26 +40,27 @@ public class DemoqaTest {
         .setUserNumber("8921941435")
         .sethobbies()
         .setdateOfBirth()
-        .setmonthInput("July", "1989");
+        .setmonthInput("July", "1989")
+        .subjectInput("English")
+        .pictureInput("1.jpg")
+        .adressInput("Nahimova1")
+        .setStateInput()
+        .setNCRInput()
+        .setcityInput()
+        .setDelhiInput()
+        .setSubmit()
+        .setcheckResult("Daniil", "Medved");
 
-
-        $("#subjectsInput").setValue("E").pressEnter();
-        $("#uploadPicture").uploadFromClasspath("1.jpg");
-        $("[id=currentAddress]").setValue("Nahimova1");
-        $("#state").click();
-        $(byText("NCR")).click();
-        $("#city").click();
-        $(byText("Delhi")).click();
         executeJavaScript("$('footer').remove()");
         executeJavaScript("$('#fixedban').remove()");
-        $("#submit").click();
 
+/*
         $("[class=modal-open]").shouldHave(text("Daniil"), text("Medved"),
                 text("9414354@mail.ru"), text("Male"), text("8921941435"),
                 text("18 July,1989"), text("English"), text("Sport"),
                 text("1.jpg"),text("Nahimova1"),text("NCR Delhi"));
 
-
+*/
 
 
 
