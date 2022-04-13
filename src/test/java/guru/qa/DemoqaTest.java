@@ -31,7 +31,7 @@ public class DemoqaTest {
         Configuration.holdBrowserOpen = true;
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browserSize = "1280x720";
-        
+
     }
 
     @Test
@@ -58,6 +58,8 @@ public class DemoqaTest {
 
         executeJavaScript("$('footer').remove()");
         executeJavaScript("$('#fixedban').remove()");
+        
+
 
 /*
         $("[class=modal-open]").shouldHave(text("Daniil"), text("Medved"),
